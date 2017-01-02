@@ -1,0 +1,23 @@
+{
+  "name": "parser",
+  "version": "1.0.0",
+  "description": "999 parser",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tourniquet/parser.git"
+  },
+  "author": "tourniquet",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tourniquet/parser/issues"
+  },
+  "homepage": "https://github.com/tourniquet/parser#readme",
+  "dependencies": {
+    "cheerio": "^0.22.0",
+    "request": "^2.79.0"
+  }
+}
