@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" type="text/css" media="screen" href="assets/css/bootstrap.min.css">
+  <style>
+    .list-group-item {
+      border: 0;
+      padding: 5px 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <ul class="list-group">
+      <li v-for="item in items" class="list-group-item">
+        <div class="input-group">
+          <span class="form-control">{{ item.title }} {{ item.phone }}</span>
+
+          <div class="input-group-btn">
+            <button type="button" class="btn btn-default" aria-label="Help">
+              <span class="glyphicon glyphicon-duplicate"></span>
+            </button>
+
+            <button type="button" class="btn btn-default">
+              <span class="glyphicon glyphicon-remove"></span>
+            </button>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <script src="assets/libs/jquery.min.js"></script>
+  <script src="assets/libs/bootstrap.min.js"></script>
+  <script src="assets/libs/vue.min.js"></script>
+  <script src="assets/libs/sails.io.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
