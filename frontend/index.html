@@ -19,11 +19,11 @@
           <span class="form-control">{{ item.title }} {{ item.phone }}</span>
 
           <div class="input-group-btn">
-            <button type="button" class="btn btn-default" aria-label="Help">
+            <button type="button" :data-clipboard-text="item.phone" class="btn btn-default" aria-label="Copy to clipboard">
               <span class="glyphicon glyphicon-duplicate"></span>
             </button>
 
-            <button type="button" class="btn btn-default">
+            <button type="button" @click="disable(item)" class="btn btn-default" aria-label="Remove item">
               <span class="glyphicon glyphicon-remove"></span>
             </button>
           </div>
@@ -34,6 +34,7 @@
 
   <script src="assets/libs/jquery.min.js"></script>
   <script src="assets/libs/bootstrap.min.js"></script>
+  <script src="assets/libs/clipboard.min.js"></script>
   <script src="assets/libs/vue.min.js"></script>
   <script src="assets/libs/sails.io.js"></script>
   <script src="assets/js/app.js"></script>

@@ -34,7 +34,7 @@ module.exports.routes = {
 
   'GET /': 'Ad.index',
   'GET /create': 'Ad.create',
-  'DELETE /delete': 'Ad.delete'
+  'PUT /disable': 'Ad.disable'
 
   /***************************************************************************
   *                                                                          *

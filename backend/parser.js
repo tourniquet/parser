@@ -31,20 +31,23 @@ function parseUrls (body) {
   })
 }
 
-let details = []
-function getAdDetails (url) {
-  let $ = cheerio.load(url)
+// let details = []
+function getAdDetails (url, data) {
+  let $ = cheerio.load(data)
 
   let title = $('.adPage__header h1').text()
   let phone = $('.adPage__content__phone').find('a').attr('href').slice(-8)
 
-  details.push({ title, phone })
+  // details.push({ title, phone })
+  request(`http://localhost:1337/create?url=${url}&title=${title}&phone=${phone}`, (err, res, body) => {
+    if (!err && res.statusCode === 200) console.log('Ok')
+  })
 }
 
 promisePages(categories)
   .then(res => res.forEach(el => parseUrls(el)))
   .then(() => promisePages(urls))
-  .then(res => res.forEach(el => getAdDetails(el)))
+  .then(res => res.forEach((el, i, arr) => getAdDetails(urls[i], el)))
   .catch(console.log.bind(console))
 
 // const theAnswerToEverything = new Promise(resolve => {

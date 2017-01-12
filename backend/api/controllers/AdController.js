@@ -11,21 +11,31 @@ module.exports = {
     let title = req.query.title
     let phone = req.query.phone
 
-    Ad.create({ url, title, phone })
-      .then(data => res.json(data))
-      .catch(err => res.serverError(err))
+    Ad
+      .findOrCreate([{ url }, { phone }], { url, title, phone })
+      .exec((err, data) => {
+        if (err) return res.serverError(err)
+        res.json(data)
+      })
   },
 
-  delete (req, res) {
-    console.log('delete')
+  disable (req, res) {
     let phone = req.query.phone
 
-    Ad.destroy({ phone })
-      .catch(err => res.serverError(err))
+    Ad
+      .update({ phone }, { enabled: false })
+      .exec((err, data) => {
+        if (err) return res.serverError(err)
+        console.log(data)
+      })
   },
 
   index (req, res) {
-    Ad.find()
+    Ad
+      .find({
+        where: { enabled: true },
+        sort: 'createdAt DESC'
+      })
       .then(data => res.json(data))
       .catch(err => res.serverError(err))
   }

@@ -7,6 +7,11 @@
 
 module.exports = {
   attributes: {
+    enabled: {
+      type: 'boolean',
+      defaultsTo: true
+    },
+
     url: {
       type: 'string',
       unique: true
